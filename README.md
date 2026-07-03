@@ -1,10 +1,17 @@
-# Healthcare Appointment Manager
+# 🏥 Healthcare Appointment Manager
 
-## Overview
+A full-stack healthcare web application where patients can register, log in, search doctors, book appointments, and view their medical history. Doctors can manage appointments and update patient records. The system also includes AI-generated pre and post visit summaries.
 
-Healthcare Appointment Manager is a full-stack web application that allows patients to register, log in, search for doctors, book appointments, and manage their appointments. Doctors can update appointment status, add consultation notes, and prescribe medications. The application also includes AI-powered summaries for appointments.
+---
 
-## Tech Stack
+## 🌐 Live Demo
+
+- Frontend: https://healthcare-appointment-manager-zeta.vercel.app/
+- Backend: https://healthcare-appointment-manager-avjx.onrender.com
+
+---
+
+## ⚙️ Tech Stack
 
 ### Frontend
 - React
@@ -21,27 +28,51 @@ Healthcare Appointment Manager is a full-stack web application that allows patie
 - Mongoose
 - JWT Authentication
 
-## Features
+---
 
-- Patient Registration & Login
-- Doctor Registration
-- Search Doctors by Specialization
-- Book Appointments
-- View Appointment History
-- Update Appointment Status
-- AI-powered Pre-Visit Summary
-- AI-powered Post-Visit Summary
+## ✨ Features
 
-## Project Structure
+- 👤 Patient Registration & Login
+- 🩺 Doctor Management
+- 🔍 Search Doctors by Specialization
+- 📅 Book Appointments
+- 📋 View Appointments
+- ✏️ Update Appointment Status
+- 🤖 AI-powered Pre-Visit Summary
+- 🤖 AI-powered Post-Visit Summary
+
+---
+
+## 📁 Project Structure
 
 ```
 healthcare-appointment-manager/
+│
 ├── client/
 ├── server/
+├── screenshots/
 └── README.md
 ```
 
-## Installation
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](screenshots/home.png)
+
+### 🔐 Login Page
+![Login](screenshots/login.png)
+
+### 📝 Register Page
+![Register](screenshots/register.png)
+
+### 👨‍⚕️ Doctors Page
+![Doctors](screenshots/doctors.png)
+
+---
+
+## 🚀 Installation
 
 ### Backend
 
@@ -59,41 +90,19 @@ npm install
 npm run dev
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file inside the `server` folder.
+## 🔐 Environment Variables
+
+Create a `.env` file inside `server/`:
 
 ```env
 MONGO_URI=your_mongodb_atlas_connection_string
 JWT_SECRET=your_secret_key
 ```
 
-## Live Deployment
+---
 
-- **Frontend:** https://healthcare-appointment-manager-zeta.vercel.app/
-- **Backend:** https://healthcare-appointment-manager-avjx.onrender.com
-
-## Author
+## 👨‍💻 Author
 
 **Sondipta Ray**
-
-
-## 📸 Screenshots
-
-### 🏠 Home Page
-
-![Home](screenshots/home.png)
-
-### 🔐 Login Page
-
-![Login](screenshots/login.png)
-
-### 📝 Success Page
-
-![Success](screenshots/success.png)
-
-### 👨‍⚕️ Doctor Page
-
-![Doctor](screenshots/doctor.png)
-
-
