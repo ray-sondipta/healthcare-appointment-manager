@@ -1,32 +1,51 @@
 import express from "express";
-import authRoutes from "./routes/auth";
-import connectDB from "./config/database";
-import router from "./routes";
-import patientRoutes from "./routes/patient";
+import cors from "cors";
 import dotenv from "dotenv";
+
+import connectDB from "./config/database";
+
+import authRoutes from "./routes/auth";
+import patientRoutes from "./routes/patient";
 import appointmentRoutes from "./routes/appointment";
 import doctorRoutes from "./routes/doctor";
-import cors from "cors";
+import router from "./routes";
 
 dotenv.config();
 
 const app = express();
+
+/* ---------------- MIDDLEWARE ---------------- */
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "*", // IMPORTANT: allows frontend on any domain (Render/Vercel)
   })
 );
-connectDB();
+
 app.use(express.json());
-const PORT = 5000;
+
+/* ---------------- DATABASE ---------------- */
+
+connectDB();
+
+/* ---------------- ROUTES ---------------- */
 
 app.use("/", router);
-app.use("/patients", patientRoutes);
 app.use("/auth", authRoutes);
+app.use("/patients", patientRoutes);
 app.use("/appointments", appointmentRoutes);
 app.use("/doctors", doctorRoutes);
 
+/* ---------------- HEALTH CHECK ---------------- */
+
+app.get("/", (req, res) => {
+  res.send("Healthcare API Running 🚀");
+});
+
+/* ---------------- SERVER ---------------- */
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
