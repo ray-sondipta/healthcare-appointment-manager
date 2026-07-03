@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/healthcareDB");
+    await mongoose.connect(process.env.MONGO_URI as string);
 
-    console.log("✅ MongoDB Connected Successfully!");
+    console.log("✅ MongoDB Atlas Connected Successfully!");
   } catch (error) {
     console.error("❌ Database Connection Failed:", error);
     process.exit(1);
