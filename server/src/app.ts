@@ -4,46 +4,40 @@ import dotenv from "dotenv";
 
 import connectDB from "./config/database";
 
+import router from "./routes";
 import authRoutes from "./routes/auth";
 import patientRoutes from "./routes/patient";
 import appointmentRoutes from "./routes/appointment";
 import doctorRoutes from "./routes/doctor";
-import router from "./routes";
 
 dotenv.config();
 
 const app = express();
 
-/* ---------------- MIDDLEWARE ---------------- */
+// Connect Database
+connectDB();
+
+// Middleware
+app.use(express.json());
 
 app.use(
   cors({
-    origin: "*", // IMPORTANT: allows frontend on any domain (Render/Vercel)
+    origin: [
+      "http://localhost:5173",
+      "https://healthcare-appointment-manager-zeta.vercel.app",
+    ],
+    credentials: true,
   })
 );
 
-app.use(express.json());
-
-/* ---------------- DATABASE ---------------- */
-
-connectDB();
-
-/* ---------------- ROUTES ---------------- */
-
+// Routes
 app.use("/", router);
 app.use("/auth", authRoutes);
 app.use("/patients", patientRoutes);
 app.use("/appointments", appointmentRoutes);
 app.use("/doctors", doctorRoutes);
 
-/* ---------------- HEALTH CHECK ---------------- */
-
-app.get("/", (req, res) => {
-  res.send("Healthcare API Running 🚀");
-});
-
-/* ---------------- SERVER ---------------- */
-
+// Start Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
