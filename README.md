@@ -90,10 +90,10 @@ JWT_SECRET=your_secret_key
 
 ### 📝 Success Page
 
-![Register](screenshots/success.png)
+![Success](screenshots/success.png)
 
 ### 👨‍⚕️ Doctor Page
 
-![Doctors](screenshots/doctor.png)
+![Doctor](screenshots/doctor.png)
 
 
